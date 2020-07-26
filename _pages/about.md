@@ -9,3 +9,5 @@ I am a Master graduate in Earth Science who is passionate in seismology and volc
 
 I used to sit for hours writing on LaTeX because the pdf made is a form of art (and I know people had appreciated my works). I also think that spending more time to embellish my map using Generic Mapping Tools is worth it (instead of using a pirated software to click and easily create one).
 
+Most of the codes that are present in this site are the tasks and assignments during my Masters' courses. These codes are built entirely by myself or by modifying from others', and I try my best to mention any names involved. All of the scripts I included here are only for educational and research purposes. The descriptive comments can be either in French or in English.
+
