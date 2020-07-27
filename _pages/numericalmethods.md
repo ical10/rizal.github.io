@@ -1,10 +1,8 @@
 ---
 layout: posts
-permalink: /numerical-analysis/
-title: "Numerical analysis"
+permalink: /geoscience-projects/
+title: "Earth Science Projects"
 author_profile: true
 header:
   image: "/images/fort point.png"
 ---
-
-

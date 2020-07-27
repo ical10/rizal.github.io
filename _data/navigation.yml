@@ -2,8 +2,8 @@
 main:
   - title: "About"
     url: /about/
-  - title: "Numerical Analysis"
-    url: /numerical-analysis/
+  - title: "Earth Science Projects"
+    url: /geoscience-projects/
   # - title: "About"
   #   url: https://mmistakes.github.io/minimal-mistakes/about/
   # - title: "Sample Posts"
