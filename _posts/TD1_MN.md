@@ -3,13 +3,12 @@ title: "Numerical Modeling -- Test"
 date: 2019-12-18
 tags: [numerical modeling, heat equation, Dirichlet condition]
 header:
-  image: "/images/perceptron/percept.jpg"
+  image: "/images/perceptron/heat_equation.png"
 excerpt: "numerical modeling, heat equation, Dirichlet condition"
 mathjax: "true"
 ---
 
 ```python
-#!/usr/bin/env python
 
 import numpy as np
 from scipy.sparse import spdiags
@@ -97,8 +96,4 @@ plt.show()
 
 ![png](TD1_MN_files/TD1_MN_0_0.png)
 
-
-
-```python
-
-```
+Here we can see that by using the corresponding boundary condition (i.e. four Dirichlet conditions), the heat transfers occur diagonally.
