@@ -1,3 +1,13 @@
+---
+title: "Numerical Modeling -- Test"
+date: 2019-12-18
+tags: [numerical modeling, heat equation, Dirichlet condition]
+header:
+  image: "/images/perceptron/percept.jpg"
+excerpt: "numerical modeling, heat equation, Dirichlet condition"
+mathjax: "true"
+---
+
 ```python
 #!/usr/bin/env python
 
