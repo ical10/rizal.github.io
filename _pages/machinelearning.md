@@ -1,7 +1,7 @@
 ---
 layout: posts
-permalink: /data-wrangling/
-title: "Data Wrangling projects"
+permalink: /numerical-analysis/
+title: "Numerical analysis"
 author_profile: true
 header:
   image: "/images/fort point.png"
