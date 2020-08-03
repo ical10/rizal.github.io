@@ -275,4 +275,7 @@ myplot(filt_data3)
 ```python
 
 ```
+
+Detailed explanation will be given for the results above, stay tune!
+
 # A short instance of linear inverse problem (will be published soon...)
