@@ -1,5 +1,5 @@
 ---
-title: "Fourier transform & linear inverse problem"
+title: "FT & linear IP"
 date: 2019-10-28
 tags: [Butterworth filter, Fast Fourier Transform, linear inverse problem]
 header:
