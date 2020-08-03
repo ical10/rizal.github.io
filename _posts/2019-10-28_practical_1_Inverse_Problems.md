@@ -13,18 +13,6 @@ mathjax: "true"
 Here we will show a short usage of FFT and Butterworth filter.
 
 ```python
-"""
-Created on Thu Aug 25 14:13:10 2016
-
-@author: Vincent Lesur (for functions and modules)
-@labwork assistant: Gaspard Farge (for explanations of functions and script)
-commented and transcribed by Mochammad Husni Rizal (in python3.7)
-
-Build an series of values with three distinct frequencies
-and then perform an FFT
-
-"""
-
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy.signal as scp
@@ -224,9 +212,6 @@ myplot(synth_data)
 ![png](/images/practical_1_Inverse_Problems_files/practical_1_Inverse_Problems_0_0.png)
 
 
-    myplot: Work done
-
-
 
 ```python
 
@@ -241,8 +226,6 @@ myplot(filt_data)
 
 ![png](/images/practical_1_Inverse_Problems_files/practical_1_Inverse_Problems_1_1.png)
 
-
-    myplot: Work done
 
 
 
@@ -261,9 +244,6 @@ myplot(filt_data2)
 ![png](/images/practical_1_Inverse_Problems_files/practical_1_Inverse_Problems_2_1.png)
 
 
-    myplot: Work done
-
-
 
 ```python
 filt_data3 = myButterworth(10, 20, synth_data)
@@ -276,9 +256,6 @@ myplot(filt_data3)
 
 
 ![png](/images/practical_1_Inverse_Problems_files/practical_1_Inverse_Problems_3_1.png)
-
-
-    myplot: Work done
 
 
 
