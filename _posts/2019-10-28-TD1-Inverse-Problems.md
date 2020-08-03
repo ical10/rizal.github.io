@@ -1,5 +1,5 @@
 ---
-title: "FT & linear IP"
+title: "FT & linear Inverse Problem"
 date: 2019-10-28
 tags: [Butterworth filter, Fast Fourier Transform, linear inverse problem]
 header:
@@ -13,6 +13,19 @@ mathjax: "true"
 Here we will show a short usage of FFT and Butterworth filter.
 
 ```python
+
+"""
+Created on Thu Aug 25 14:13:10 2016
+
+@author: Vincent Lesur (for functions and modules)
+@labwork assistant: Gaspard Farge (for explanations of functions and script)
+commented and transcribed by Mochammad Husni Rizal (in python3.7)
+
+Build an series of values with three distinct frequencies
+and then perform an FFT
+
+"""
+
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy.signal as scp
