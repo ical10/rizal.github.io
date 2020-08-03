@@ -13,7 +13,6 @@ mathjax: "true"
 Here we will show a short usage of FFT and Butterworth filter.
 
 ```python
-# -*- coding: utf-8 -*-
 """
 Created on Thu Aug 25 14:13:10 2016
 
@@ -222,7 +221,7 @@ myplot(synth_data)
 ```
 
 
-![png](images/practical_1_Inverse_Problems_files/practical_1_Inverse_Problems_0_0.png)
+![png](/images/practical_1_Inverse_Problems_files/practical_1_Inverse_Problems_0_0.png)
 
 
     myplot: Work done
@@ -236,11 +235,11 @@ myplot(filt_data)
 ```
 
 
-![png](images/practical_1_Inverse_Problems_files/practical_1_Inverse_Problems_1_0.png)
+![png](/images/practical_1_Inverse_Problems_files/practical_1_Inverse_Problems_1_0.png)
 
 
 
-![png](images/practical_1_Inverse_Problems_files/practical_1_Inverse_Problems_1_1.png)
+![png](/images/practical_1_Inverse_Problems_files/practical_1_Inverse_Problems_1_1.png)
 
 
     myplot: Work done
@@ -255,11 +254,11 @@ myplot(filt_data2)
 ```
 
 
-![png](images/practical_1_Inverse_Problems_files/practical_1_Inverse_Problems_2_0.png)
+![png](/images/practical_1_Inverse_Problems_files/practical_1_Inverse_Problems_2_0.png)
 
 
 
-![png](images/practical_1_Inverse_Problems_files/practical_1_Inverse_Problems_2_1.png)
+![png](/images/practical_1_Inverse_Problems_files/practical_1_Inverse_Problems_2_1.png)
 
 
     myplot: Work done
@@ -272,11 +271,11 @@ myplot(filt_data3)
 ```
 
 
-![png](images/practical_1_Inverse_Problems_files/practical_1_Inverse_Problems_3_0.png)
+![png](/images/practical_1_Inverse_Problems_files/practical_1_Inverse_Problems_3_0.png)
 
 
 
-![png](images/practical_1_Inverse_Problems_files/practical_1_Inverse_Problems_3_1.png)
+![png](/images/practical_1_Inverse_Problems_files/practical_1_Inverse_Problems_3_1.png)
 
 
     myplot: Work done
