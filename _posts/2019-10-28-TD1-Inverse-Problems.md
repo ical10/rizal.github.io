@@ -291,11 +291,13 @@ myplot(filt_data3)
 
 ![png](/images/practical_1_Inverse_Problems_files/practical_1_Inverse_Problems_3_1.png)
 
-At this stage, we can safely say that the threshold used is almost correct.
+At this stage, we can safely say that the threshold used is good enough.
 Now we can see that there are at least three distinct peaks of spectra, meaning
 that our synthetic signal is formed by superposed cosine waves with three distinct
 frequencies.
 
-Detailed explanation will be given for the results above, stay tune!
+Our filtered signal looks also more regular and neat after setting the correct
+frequency threshold.
+
 
 # A short instance of linear inverse problem (will be published soon...)
