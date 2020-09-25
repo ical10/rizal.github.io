@@ -12,6 +12,8 @@ mathjax: "true"
 
 Here we will show a short usage of FFT and Butterworth filter.
 
+First, we define some useful functions below:
+
 ```python
 
 """
@@ -21,8 +23,12 @@ Created on Thu Aug 25 14:13:10 2016
 @labwork assistant: Gaspard Farge (for explanations of functions and script)
 commented and transcribed by Mochammad Husni Rizal (in python3.7)
 
-Build an series of values with three distinct frequencies
-and then perform an FFT
+Here we define several functions which will help us to perform FFT and
+Butterworth filtering.
+
+You will also find a function to construct synthetic timeseries data, a function
+to plot it, and functions to construct matrices which form the inversion scheme
+(e.g. AA, data covariance matrix, AtWA).
 
 """
 
@@ -214,7 +220,16 @@ def AtWA(nl, nc, eps):
     # print 'At.W.A'
     # print GG
     return GG
+```
 
+After defining the functions above, of course we want to put them to good use.
+Let's construct our first synthetic data! This data is basically constructed
+from the superposition of several cosine waves, where we define the frequency
+k, the length nv, and the random white noise eps.
+
+Then, we use the plot function to plot it.
+
+```python
 
 synth_data = mk_synth_data(nv, k1, k2, k3, eps)
 myplot(synth_data)
@@ -224,7 +239,8 @@ myplot(synth_data)
 
 ![png](/images/practical_1_Inverse_Problems_files/practical_1_Inverse_Problems_0_0.png)
 
-
+So the synthetic data looks complicated enough. Let's now try to filter it
+using low-pass filter with the Butterworth design.
 
 ```python
 
@@ -232,21 +248,26 @@ filt_data = myButterworth(10, 100, synth_data)
 myplot(filt_data)
 ```
 
-
 ![png](/images/practical_1_Inverse_Problems_files/practical_1_Inverse_Problems_1_0.png)
 
 
 
 ![png](/images/practical_1_Inverse_Problems_files/practical_1_Inverse_Problems_1_1.png)
 
+This gives us 1) a plot of amplitude of spectra
+against the time series (or the number of points), and
+2) a plot of filtered signal.
 
+We can see that the spectra is still quite noisy, and we are still not sure
+yet where the peak spectra(s) is(are). The filtered signal has not yet changed
+that much either.
 
+Let's then filter it again, this time with half of the previous frequency,
+keeping the filter order at $10$.
 
 ```python
 filt_data2 = myButterworth(10, 50, synth_data)
 myplot(filt_data2)
-
-
 ```
 
 
@@ -256,25 +277,24 @@ myplot(filt_data2)
 
 ![png](/images/practical_1_Inverse_Problems_files/practical_1_Inverse_Problems_2_1.png)
 
-
+Now we start to see that the smaller random peaks on the amplitude-timeseries
+plot start to disappear. Let's now decrease again the frequency threshold to
+$20$ Hz!
 
 ```python
 filt_data3 = myButterworth(10, 20, synth_data)
 myplot(filt_data3)
 ```
 
-
 ![png](/images/practical_1_Inverse_Problems_files/practical_1_Inverse_Problems_3_0.png)
-
 
 
 ![png](/images/practical_1_Inverse_Problems_files/practical_1_Inverse_Problems_3_1.png)
 
-
-
-```python
-
-```
+At this stage, we can safely say that the threshold used is almost correct.
+Now we can see that there are at least three distinct peaks of spectra, meaning
+that our synthetic signal is formed by superposed cosine waves with three distinct
+frequencies.
 
 Detailed explanation will be given for the results above, stay tune!
 
