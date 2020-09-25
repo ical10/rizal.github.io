@@ -225,7 +225,7 @@ def AtWA(nl, nc, eps):
 After defining the functions above, of course we want to put them to good use.
 Let's construct our first synthetic data! This data is basically constructed
 from the superposition of several cosine waves, where we define the frequency
-k, the length nv, and the random white noise eps.
+k, the length of data nv, and the random white noise eps.
 
 Then, we use the plot function to plot it.
 
@@ -239,7 +239,7 @@ myplot(synth_data)
 
 ![png](/images/practical_1_Inverse_Problems_files/practical_1_Inverse_Problems_0_0.png)
 
-So the synthetic data looks complicated enough. Let's now try to filter it
+The synthetic data looks complicated enough. Let's now try to filter it
 using low-pass filter with the Butterworth design.
 
 ```python
@@ -263,7 +263,7 @@ yet where the peak spectra(s) is(are). The filtered signal has not yet changed
 that much either.
 
 Let's then filter it again, this time with half of the previous frequency,
-keeping the filter order at $10$.
+keeping the filter order at 10.
 
 ```python
 filt_data2 = myButterworth(10, 50, synth_data)
@@ -279,7 +279,7 @@ myplot(filt_data2)
 
 Now we start to see that the smaller random peaks on the amplitude-timeseries
 plot start to disappear. Let's now decrease again the frequency threshold to
-$20$ Hz!
+20 Hz!
 
 ```python
 filt_data3 = myButterworth(10, 20, synth_data)
@@ -299,5 +299,6 @@ frequencies.
 Our filtered signal looks also more regular and neat after setting the correct
 frequency threshold.
 
+So
 
 # A short instance of linear inverse problem (will be published soon...)
