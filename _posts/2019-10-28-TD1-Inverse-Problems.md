@@ -113,7 +113,7 @@ def myButterworth(no, ck, ddat):
     try:
         pcf = ck * 2./ddat.size
         b, a = scp.butter(no, pcf)
-        bdat = scp.lfilter(b, a, ddat)
+        bdat = scp.lfilter(b, a, ddat) #forward one-direction filter
         mafft = np.fft.fft(bdat)
         spctr = abs(mafft)
 #
@@ -140,7 +140,7 @@ def myOtherButterworth(no, ck, ddat):
     try:
         pcf = ck * 2./ddat.size
         b, a = scp.butter(no, pcf)
-        obdat = scp.filtfilt(b, a, ddat)
+        obdat = scp.filtfilt(b, a, ddat) #forward-backward filtering
         mafft = np.fft.fft(obdat)
         spctr = abs(mafft)
 #
@@ -240,7 +240,7 @@ myplot(synth_data)
 ![png](/images/practical_1_Inverse_Problems_files/practical_1_Inverse_Problems_0_0.png)
 
 The synthetic data looks complicated enough. Let's now try to filter it
-using low-pass filter with the Butterworth design.
+using low-pass filter with the first Butterworth design.
 
 ```python
 
@@ -296,9 +296,11 @@ Now we can see that there are at least three distinct peaks of spectra, meaning
 that our synthetic signal is formed by superposed cosine waves with three distinct
 frequencies.
 
-Our filtered signal looks also more regular and neat after setting the correct
+Our filtered signal also looks less chaotic and neat after setting the correct
 frequency threshold.
 
-So
+So, what about the second Butterworth design? At this point, you will notice
+that the second one is using filtfilt function instead of lfilt
+from the scipy module. Why? Let's find the answer by applying this filter!
 
 # A short instance of linear inverse problem (will be published soon...)
