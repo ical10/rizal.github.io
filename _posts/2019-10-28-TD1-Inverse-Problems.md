@@ -278,8 +278,7 @@ myplot(filt_data2)
 ![png](/images/practical_1_Inverse_Problems_files/practical_1_Inverse_Problems_2_1.png)
 
 Now we start to see that the smaller random peaks on the amplitude-timeseries
-plot start to disappear. Let's now decrease again the frequency threshold to
-20 Hz!
+plot start to disappear. Now let's lower the frequency threshold to 20 Hz!
 
 ```python
 filt_data3 = myButterworth(10, 20, synth_data)
