@@ -1,0 +1,78 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#splash > * {
+    display: block;
+    margin-top: 30px;
+}
+
+#splash > *:first-child {
+    margin-top: 0px;
+}
+
+div#splash {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  visibility: visible;
+  z-index: 1000;
+}
+
+
+.title-center {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  left: 50%;
+  top: 40%;
+  transform: translateX(-50%) translateY(-50%);
+  text-align: center;
+}
+
+
+.center {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  text-align: center;
+}
+
+#container {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background-color: green;
+  visibility: hidden;
+}
+
+#StartButton {
+  background: transparent;
+  border: none;
+}
+
+img.resize {
+  height: 120px;
+  width: auto;
+}
+
+
+
+#animatedTrash {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  animation: falling 5s ease-in infinite;
+}
+
+@keyframes falling{
+  0%{top: 0px}
+  100%{top: 400px}
+}

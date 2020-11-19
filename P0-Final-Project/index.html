@@ -4,29 +4,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Maximal Minimalists - Homepage</title>
-  <link href="style.css" rel="stylesheet" type="text/css">
+  <title>Sorting Game</title>
+  <link href="main.css" rel="stylesheet">
 </head>
 
 <body>
-  <div class="container">
-    <nav>
-      <div class="logo">
-        <img src="Max_min_logo1.png" alt="logo_maximal_minimalist" width="50" height="50">
-      </div>
-      <div class="nav-wrapper">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="join.html">Join</a></li>
-          <li><a href="about.html">About</a></li>
-        </ul>
-      </div>
-    </nav>
+  <div id="splash">
+    <h1 class="title-center">Are you ready to take out the trash?</h1>
+    <button id="StartButton" class="center" type="submit" onclick="startGame()">
+      <img id="oscar-welcome" onmouseover="hover(this)" onmouseout="unhover(this)" class="resize"
+        src="img/oscar-anim1.png" alt="submit">
+    </button>
   </div>
-  <div class="title-center">
-    <h1>Maximal minimalists</h1>
-    <h3>Where developers create maximal products with minimum efforts</h3>
+  <div id="container">
+    <div class="counter" id="counter">00s</div>
+    <div class="score">00</div>
+    <img id="animatedTrash" src="img/paperTrash.png">
   </div>
+  <script src="main.js"></script>
 </body>
+
 
 </html>
