@@ -4,24 +4,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sorting Game</title>
+  <title>Trash Clicker</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <link href="main.css" rel="stylesheet">
 </head>
 
 <body>
-  <div id="splash">
+  <div class="splash-page" id="splash">
     <h1 class="title-center">Are you ready to take out the trash?</h1>
+    <h3 class="title-center" style="color: red;">Help Oscar collect the trash falling from the sky! Click on <img
+        id="paper" src="img/paperTrash.png"> to gain
+      a point. When you click on a <img id="goldbar" src="img/goldbarSuisse.png"> you lose a point! Easy
+      right?</h3>
     <button id="StartButton" class="center" type="submit" onclick="openGameArea()">
-      <img id="oscar-welcome" onmouseover="hover(this)" onmouseout="unhover(this)" class="resize"
+      <img id="oscar-welcome" onmouseover="hover(this)" onmouseout="unhover(this)" class="resize-oscar"
         src="img/oscar-anim1.png" alt="submit">
     </button>
   </div>
-  <div class="container">
+  <div id="container" class="container">
     <div class="counter" id="counter">00s</div>
     <div class="score">00</div>
     <!--<img id="animatedTrash" src="img/paperTrash.png">-->
   </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <div class="footer">
+    <p style="text-indent: 30%;">Author: Rizal (ical10 @github)<br>
+      Bugs and improvement, please contact: <a href="mailto:mochhusnir@gmail.com">mochhusnir@gmail.com</a></p>
+  </div>
   <script src="main.js"></script>
 </body>
 
