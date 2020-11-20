@@ -5,7 +5,7 @@
 
 #splash > * {
     display: block;
-    margin-top: 30px;
+    margin-top: 50px;
 }
 
 #splash > *:first-child {
@@ -21,7 +21,24 @@ div#splash {
   z-index: 1000;
 }
 
-img.resize {
+div.footer {
+  position: fixed;
+  bottom: 0;
+  left: 32%;
+}
+
+.splash-page p, img {
+  display: inline-block;
+  font-size: 12px;
+  height: 18px;
+  width: auto;
+}
+
+
+.splash-page img.resize-oscar {
+  margin-top: 60px;
+  margin-left: auto;
+  margin-right: auto;
   height: 120px;
   width: auto;
 }
@@ -81,13 +98,13 @@ img.resize {
 }
 
 .move {
-  transform:translateY(100vh);
+  transform: translateY(100vh);
 }
 
 .container {
   width: 100%;
   height: 750px;
-  position: relative;
+  position: absolute;
   background: #efefef;
   visibility: visible;
 }
@@ -98,14 +115,14 @@ img.resize {
 }
 
 
-#animatedTrash {
-  width: 30px;
-  height: 30px;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  animation: falling 5s ease-in infinite;
-}
+/*#animatedTrash {*/
+  /*width: 30px;*/
+  /*height: 30px;*/
+  /*position: absolute;*/
+  /*top: 0px;*/
+  /*left: 0px;*/
+  /*animation: falling 5s ease-in infinite;*/
+/*}*/
 
 @keyframes falling{
   0%{top: 0px}

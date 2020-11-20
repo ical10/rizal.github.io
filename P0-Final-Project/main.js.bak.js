@@ -41,6 +41,13 @@ function oscarHey(src) {
   }
 }
 
+//function setFallingTrash() {
+//if (randomizeBinary()) {
+//return "img/goldbarSuisse.jpeg"
+//} else {
+//return "img/paperTrash.png"
+//}
+//}
 
 // helper function for setting several attributes
 function setAttributes(el, attrs) {
@@ -60,7 +67,15 @@ function fallingTrash() {
   theBox.classList.add("box") // adding class="box" to div
 
   setAttributes(theBox, {"position": "relative", "width": size, "height": size, "left": length, "transition-property": "all", "transition-duration": velocity, "transition-timing-function": "linear"})
+  // how to add `transform `
 
+  // set several attributes at once
+  //theBox.setAttribute("width", size)
+  //theBox.setAttribute("height", size)
+  //let theBox = $("<div/>", { // create a new div box with randomised spawn position and speed
+  //class: "box",
+  //style: "width:" + size + "px; height:" + size + "px; left:" + length + "px; transition: transform " + velocity + "ms linear;"
+  //})
 
   // set background image inside the div-box with trash sprites
   let ranVar = randomizeBinary()
@@ -80,8 +95,25 @@ function fallingTrash() {
     })
   }
 
+  // jQuery part
+  //theBox.data("test", randomizeBinary())
+  //if (theBox.data("test")) {
+  //theBox.css({
+  //"background": "url('img/goldbarSuisse.jpeg')",
+  //"background-size": "contain"
+  //})
+  //} else {
+  //theBox.css({
+  //"background": "url('img/paperTrash.png')",
+  //"background-size": "contain"
+  //})
+  //}
+
   // insert the div-box element into container
   document.querySelector(".container").appendChild(theBox)
+
+  // jQuery equivalent
+  //$(".container").append(theBox)
 
   // random y-direction animation for the div-box element
   setTimeout(function () {
@@ -93,6 +125,11 @@ function fallingTrash() {
     function () {
       theBox.remove()
     })
+
+  //theBox.one("webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend",
+  //function () {
+  //$(this).remove()
+  //})
 }
 
 for (let i = 0; i < 10; i++) {
@@ -110,6 +147,15 @@ document.getElementById("container").addEventListener('click', function (e) {
   theBox.remove()
 })
 
+//$(document).on('click', '.box', function () {
+//if ($(this).data("test")) {
+//score -= 1  // score -1 if you click on the expensive sneakers!
+//} else {
+//score += 1 // score +1 if you click on the trash
+//}
+//$(".score").html(score)
+//$(this).remove()
+//})
 
 //start game by making trash falling every 5000 ms over 10 loops
 
@@ -139,9 +185,16 @@ function countdown() {
 
 
 
-// Problem: hard to implement some functionality using pure vanilla JS (e.g. click on object, random spawn)
+// Problem: counter runs automatically
 // Features to add: music when game starts and don't repeat
+// showing your score in a refreshed page with stylised h1
 // 
 
+//trash randomly changes y - position as it falls to the ground
+//function fallingTrash() {
+//let trash = document.getElementById("animatedTrash")
+//let spaceH = screen.width - trash.width
+//trash.style.left = Math.round(Math.random() * spaceH) + "px"
+//}
 
 
