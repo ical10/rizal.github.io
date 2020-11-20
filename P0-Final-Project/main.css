@@ -21,6 +21,10 @@ div#splash {
   z-index: 1000;
 }
 
+img.resize {
+  height: 120px;
+  width: auto;
+}
 
 .title-center {
   position: absolute;
@@ -32,7 +36,6 @@ div#splash {
   text-align: center;
 }
 
-
 .center {
   position: absolute;
   margin: 0;
@@ -43,12 +46,50 @@ div#splash {
   text-align: center;
 }
 
-#container {
-  width: 100%;
-  height: 100vh;
+.score {
+  text-align: center;
+  font-size: 50px;
+  font-family: Roboto, Helvetica, sans-serif;
+  color: green;
+  user-select: none;
+  height: 750px;
+  width: auto;
   position: relative;
-  background-color: green;
-  visibility: hidden;
+}
+
+.counter {
+  width: auto;
+  padding-top: 15px;
+  margin: 0 auto;
+  font-family: Roboto, Helvetica, sans-serif;
+  color: orange;
+  text-align: center;
+  font-size: 50px;
+  font-weight: 700; 
+  position: relative;
+  z-index: 9999;
+}
+
+.box {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  top: -150px;
+  transition: transform 1.5s linear;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.move {
+  transform:translateY(100vh);
+}
+
+.container {
+  width: 100%;
+  height: 750px;
+  position: relative;
+  background: #efefef;
+  visibility: visible;
 }
 
 #StartButton {
@@ -56,17 +97,11 @@ div#splash {
   border: none;
 }
 
-img.resize {
-  height: 120px;
-  width: auto;
-}
-
-
 
 #animatedTrash {
   width: 30px;
   height: 30px;
-  position: relative;
+  position: absolute;
   top: 0px;
   left: 0px;
   animation: falling 5s ease-in infinite;

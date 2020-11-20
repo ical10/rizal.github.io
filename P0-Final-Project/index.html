@@ -11,16 +11,17 @@
 <body>
   <div id="splash">
     <h1 class="title-center">Are you ready to take out the trash?</h1>
-    <button id="StartButton" class="center" type="submit" onclick="startGame()">
+    <button id="StartButton" class="center" type="submit" onclick="openGameArea()">
       <img id="oscar-welcome" onmouseover="hover(this)" onmouseout="unhover(this)" class="resize"
         src="img/oscar-anim1.png" alt="submit">
     </button>
   </div>
-  <div id="container">
+  <div class="container">
     <div class="counter" id="counter">00s</div>
     <div class="score">00</div>
-    <img id="animatedTrash" src="img/paperTrash.png">
+    <!--<img id="animatedTrash" src="img/paperTrash.png">-->
   </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="main.js"></script>
 </body>
 
