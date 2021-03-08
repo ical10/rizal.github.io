@@ -13,7 +13,7 @@ sidebar:
 A simple app where you can discover the latest trending movies and tv series. You can also add a new movie (with its description and poster url), see the detail of each movie (by clicking on the title), search by title (with debounced search), and also favorite a movie/tv series!
 
 
-{% include my-gallery.html folder="/images/img" %}
+{% include my_gallery.html folder="/images/img" %}
 
 <!--{% include gallery caption="This is a sample gallery to go along with this case study." %}-->
 
