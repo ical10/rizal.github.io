@@ -16,4 +16,4 @@ A simple app where you can discover the latest trending movies and tv series. Yo
 
 {% include my_gallery.html folder="/images/img" %}
 
-Go to hosted site: [link](#)
+Go to hosted site: [link](http://glasgow.entertainme.online.s3-website-ap-southeast-1.amazonaws.com/)
