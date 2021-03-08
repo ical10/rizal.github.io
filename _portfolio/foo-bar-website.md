@@ -16,4 +16,4 @@ A simple app where you can discover the latest trending movies and tv series. Yo
 
 {% include my_gallery.html folder="/images/img" %}
 
-[link](Go to hosted site)
+Go to hosted site: [link](#)
