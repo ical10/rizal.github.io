@@ -16,4 +16,4 @@ A simple app where you can discover the latest trending video games. You can als
 
 {% include my_gallery_gamerzone.html folder="/images/img" %}
 
-Go to hosted site: [link](#)
+Go to hosted site: [link](https://gamerzone-d7120.web.app/)
