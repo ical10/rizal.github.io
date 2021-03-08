@@ -11,7 +11,7 @@ remote_theme: "mmistakes/minimal-mistakes@4.22.0"
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Programming in Earth Science"
+title                    : "Programming | Web and Mobile Dev | Earth Science"
 title_separator          : "-"
 name                     : "Mochammad Husni Rizal"
 description              : "My Portfolio"
