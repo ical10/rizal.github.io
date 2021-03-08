@@ -14,6 +14,6 @@ gamerzone: https://gamerzone-d7120.web.app/
 A simple app where you can discover the latest trending video games. You can also see the detail of each video game (by clicking on the title), search by title (with debounced search), and also add video games as favorites!
 
 
-{% include my_gallery_gamerzone.html folder="/images/img_gamerzone" %}
+{% include my_gallery_gamerzone.html folder="/images/img" %}
 
 Go to hosted site: [gamerzone](#)
