@@ -1,6 +1,6 @@
 ---
 layout: posts
-permalink: /geoscience-projects/
+permalink: /geosciences/
 title: "Earth Science Projects"
 author_profile: true
 header:

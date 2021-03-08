@@ -2,10 +2,10 @@
 main:
   - title: "About"
     url: /about/
-  - title: "Earth Science Projects"
-    url: /geoscience-projects/
-  - title: "Dev Projects"
-    url: /projects/
+  - title: "Portfolio"
+    url: /portfolio/
+  - title: "Geosciences"
+    url: /geosciences/
   # - title: "About"
   #   url: https://mmistakes.github.io/minimal-mistakes/about/
   # - title: "Sample Posts"

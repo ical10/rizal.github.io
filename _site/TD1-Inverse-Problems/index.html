@@ -1,0 +1,861 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.22.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>FT &amp; linear Inverse Problem - Programming in Earth Science</title>
+<meta name="description" content="Butterworth filter, Fast Fourier Transform, linear inverse problem">
+
+
+  <meta name="author" content="Mochammad Husni Rizal">
+  
+  <meta property="article:author" content="Mochammad Husni Rizal">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Programming in Earth Science">
+<meta property="og:title" content="FT &amp; linear Inverse Problem">
+<meta property="og:url" content="http://localhost:4000/TD1-Inverse-Problems/">
+
+
+  <meta property="og:description" content="Butterworth filter, Fast Fourier Transform, linear inverse problem">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/images/BRD_VER_1_tinified.png">
+
+
+
+
+
+  <meta property="article:published_time" content="2019-10-28T00:00:00+07:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/TD1-Inverse-Problems/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Mochammad Husni Rizal",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Programming in Earth Science Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Programming in Earth Science
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/portfolio/">Portfolio</a>
+            </li><li class="masthead__menu-item">
+              <a href="/geosciences/">Geosciences</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle Menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+  
+
+
+
+
+
+
+
+<div class="page__hero"
+  style=" background-image: url('');"
+>
+  
+    <img src="/images/BRD_VER_1_tinified.png" alt="FT &amp; linear Inverse Problem" class="page__hero-image">
+  
+  
+</div>
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/images/chut_baby.jpg" alt="Mochammad Husni Rizal" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Mochammad Husni Rizal</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>Programming in Geoscience – Portfolio</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Paris, FR - Jakarta, ID</span>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+        <li>
+          <a href="https://www.linkedin.com/in/mochammad-husni-rizal-56311847" itemprop="sameAs" rel="nofollow noopener noreferrer">
+            <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+        <li>
+          <a href="https://github.com/ical10" itemprop="sameAs" rel="nofollow noopener noreferrer">
+            <i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="FT &amp; linear Inverse Problem">
+    <meta itemprop="description" content="Butterworth filter, Fast Fourier Transform, linear inverse problem">
+    <meta itemprop="datePublished" content="2019-10-28T00:00:00+07:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">FT &amp; linear Inverse Problem
+</h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          4 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h1 id="simple-utilisation-of-fast-fourier-transform-and-butterworth-filter">Simple utilisation of Fast Fourier Transform and Butterworth filter</h1>
+
+<p>Here we will show a short usage of FFT and Butterworth filter.</p>
+
+<p>First, we define some useful functions below:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="s">"""
+Created on Thu Aug 25 14:13:10 2016
+
+@author: Vincent Lesur (for functions and modules)
+@labwork assistant: Gaspard Farge (for explanations of functions and script)
+commented and transcribed by Mochammad Husni Rizal (in python3.7)
+
+Here we define several functions which will help us to perform FFT and
+Butterworth filtering.
+
+You will also find a function to construct synthetic timeseries data, a function
+to plot it, and functions to construct matrices which form the inversion scheme
+(e.g. AA, data covariance matrix, AtWA).
+
+"""</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="nn">scipy.signal</span> <span class="k">as</span> <span class="n">scp</span>
+
+<span class="c1">#definition of variables
+</span><span class="n">nv</span><span class="o">=</span><span class="mi">256</span>
+<span class="n">nl</span> <span class="o">=</span> <span class="mi">256</span>
+<span class="n">nc</span> <span class="o">=</span> <span class="mi">130</span>
+<span class="n">k1</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="mf">0.05</span><span class="o">*</span><span class="mi">256</span><span class="p">)</span>
+<span class="n">k2</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="mf">0.07</span><span class="o">*</span><span class="mi">256</span><span class="p">)</span>
+<span class="n">k3</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="mf">0.09</span><span class="o">*</span><span class="mi">256</span><span class="p">)</span>
+<span class="n">eps</span><span class="o">=</span><span class="mf">0.1</span>
+<span class="n">cnd</span><span class="o">=</span><span class="mf">1.e-7</span>
+
+
+<span class="k">def</span> <span class="nf">moncos</span><span class="p">(</span><span class="n">nv</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+    <span class="n">val</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">cos</span><span class="p">(</span><span class="mf">2.</span><span class="o">*</span><span class="n">np</span><span class="p">.</span><span class="n">pi</span><span class="o">*</span><span class="n">k</span><span class="o">*</span><span class="n">n</span><span class="o">/</span><span class="n">nv</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">val</span>
+
+
+<span class="k">def</span> <span class="nf">mk_synth_data</span><span class="p">(</span><span class="n">nv</span><span class="p">,</span> <span class="n">k1</span><span class="p">,</span> <span class="n">k2</span><span class="p">,</span> <span class="n">k3</span><span class="p">,</span> <span class="n">eps</span><span class="p">):</span>
+    <span class="c1">#
+</span>    <span class="c1"># Defines a data set of length nv and made of cosine waves
+</span>    <span class="c1"># of frequencies k1, k2, k3 + plus white noise eps
+</span>    <span class="c1"># returns dat
+</span>    <span class="c1">#
+</span>    <span class="n">dat</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="n">moncos</span><span class="p">(</span><span class="n">nv</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">k1</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nv</span><span class="p">)])</span>
+    <span class="n">dat</span> <span class="o">+=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="n">moncos</span><span class="p">(</span><span class="n">nv</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">k2</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nv</span><span class="p">)])</span>
+    <span class="n">dat</span> <span class="o">+=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="n">moncos</span><span class="p">(</span><span class="n">nv</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">k3</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nv</span><span class="p">)])</span>
+    <span class="n">dat</span> <span class="o">+=</span> <span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">randn</span><span class="p">(</span><span class="n">nv</span><span class="p">)</span> <span class="o">*</span> <span class="n">eps</span>
+    <span class="k">return</span> <span class="n">dat</span>
+
+
+<span class="k">def</span> <span class="nf">myplot</span><span class="p">(</span><span class="n">ddat</span><span class="p">):</span>
+    <span class="c1">#
+</span>    <span class="c1"># Plot Data
+</span>    <span class="c1">#
+</span>    <span class="k">try</span><span class="p">:</span>
+        <span class="n">plt</span><span class="p">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">plt</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ddat</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">'Time series'</span><span class="p">)</span>
+        <span class="n">plt</span><span class="p">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">'upper center'</span><span class="p">)</span>
+        <span class="n">plt</span><span class="p">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'Point number'</span><span class="p">)</span>
+        <span class="n">plt</span><span class="p">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'Signal'</span><span class="p">)</span>
+        <span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="k">except</span> <span class="nb">Exception</span> <span class="k">as</span> <span class="n">msg</span><span class="p">:</span>
+        <span class="k">print</span> <span class="p">(</span><span class="s">'**** ERROR:'</span><span class="p">)</span>
+        <span class="k">print</span> <span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span> <span class="p">(</span><span class="s">'myplot: Work done'</span><span class="p">)</span>
+
+
+
+
+<span class="k">def</span> <span class="nf">myFFT</span><span class="p">(</span><span class="n">ddat</span><span class="p">):</span>
+    <span class="c1">#
+</span>    <span class="c1"># Compute and plot FFT spectrum
+</span>    <span class="c1">#
+</span>    <span class="k">try</span><span class="p">:</span>
+        <span class="n">mafft</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">fft</span><span class="p">.</span><span class="n">fft</span><span class="p">(</span><span class="n">ddat</span><span class="p">)</span>
+        <span class="n">spctr</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">mafft</span><span class="p">)</span>
+<span class="c1">#
+</span>        <span class="n">plt</span><span class="p">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">plt</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">spctr</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">'FFT transform'</span><span class="p">)</span>
+        <span class="n">plt</span><span class="p">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">'upper center'</span><span class="p">)</span>
+        <span class="n">plt</span><span class="p">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'Point number'</span><span class="p">)</span>
+        <span class="n">plt</span><span class="p">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'Amplitude'</span><span class="p">)</span>
+        <span class="n">plt</span><span class="p">.</span><span class="n">yscale</span><span class="p">(</span><span class="s">'log'</span><span class="p">)</span>
+        <span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="k">except</span> <span class="nb">Exception</span> <span class="k">as</span> <span class="n">msg</span><span class="p">:</span>
+        <span class="k">print</span> <span class="p">(</span><span class="s">'**** ERROR:'</span><span class="p">)</span>
+        <span class="k">print</span> <span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span> <span class="p">(</span><span class="s">'maFFT: Work done'</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">myButterworth</span><span class="p">(</span><span class="n">no</span><span class="p">,</span> <span class="n">ck</span><span class="p">,</span> <span class="n">ddat</span><span class="p">):</span>
+    <span class="c1">#
+</span>    <span class="c1"># Apply "no" order Butterworth filter (ck =&lt; Nyquist k value)
+</span>    <span class="c1"># return bdat
+</span>    <span class="k">try</span><span class="p">:</span>
+        <span class="n">pcf</span> <span class="o">=</span> <span class="n">ck</span> <span class="o">*</span> <span class="mf">2.</span><span class="o">/</span><span class="n">ddat</span><span class="p">.</span><span class="n">size</span>
+        <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">scp</span><span class="p">.</span><span class="n">butter</span><span class="p">(</span><span class="n">no</span><span class="p">,</span> <span class="n">pcf</span><span class="p">)</span>
+        <span class="n">bdat</span> <span class="o">=</span> <span class="n">scp</span><span class="p">.</span><span class="n">lfilter</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">ddat</span><span class="p">)</span> <span class="c1">#forward one-direction filter
+</span>        <span class="n">mafft</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">fft</span><span class="p">.</span><span class="n">fft</span><span class="p">(</span><span class="n">bdat</span><span class="p">)</span>
+        <span class="n">spctr</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">mafft</span><span class="p">)</span>
+<span class="c1">#
+</span>        <span class="n">plt</span><span class="p">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">plt</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">spctr</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">'FFT Bfiltered transform'</span><span class="p">)</span>
+        <span class="n">plt</span><span class="p">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">'upper center'</span><span class="p">)</span>
+        <span class="n">plt</span><span class="p">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'Point number'</span><span class="p">)</span>
+        <span class="n">plt</span><span class="p">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'Amplitude'</span><span class="p">)</span>
+        <span class="n">plt</span><span class="p">.</span><span class="n">yscale</span><span class="p">(</span><span class="s">'log'</span><span class="p">)</span>
+        <span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">bdat</span>
+    <span class="k">except</span> <span class="nb">Exception</span> <span class="k">as</span> <span class="n">msg</span><span class="p">:</span>
+        <span class="k">print</span> <span class="p">(</span><span class="s">'**** ERROR:'</span><span class="p">)</span>
+        <span class="k">print</span> <span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span> <span class="p">(</span><span class="s">'myButterworth: Work done'</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">myOtherButterworth</span><span class="p">(</span><span class="n">no</span><span class="p">,</span> <span class="n">ck</span><span class="p">,</span> <span class="n">ddat</span><span class="p">):</span>
+    <span class="c1">#
+</span>    <span class="c1"># Apply "no" order Butterworth filter (ck =&lt; Nyquist k value)
+</span>    <span class="c1"># re-apply it with opposite phase
+</span>    <span class="c1"># return obdat
+</span>    <span class="k">try</span><span class="p">:</span>
+        <span class="n">pcf</span> <span class="o">=</span> <span class="n">ck</span> <span class="o">*</span> <span class="mf">2.</span><span class="o">/</span><span class="n">ddat</span><span class="p">.</span><span class="n">size</span>
+        <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">scp</span><span class="p">.</span><span class="n">butter</span><span class="p">(</span><span class="n">no</span><span class="p">,</span> <span class="n">pcf</span><span class="p">)</span>
+        <span class="n">obdat</span> <span class="o">=</span> <span class="n">scp</span><span class="p">.</span><span class="n">filtfilt</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">ddat</span><span class="p">)</span> <span class="c1">#forward-backward filtering
+</span>        <span class="n">mafft</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">fft</span><span class="p">.</span><span class="n">fft</span><span class="p">(</span><span class="n">obdat</span><span class="p">)</span>
+        <span class="n">spctr</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">mafft</span><span class="p">)</span>
+<span class="c1">#
+</span>        <span class="n">plt</span><span class="p">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">plt</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">spctr</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">'FFT BBfiltered transform'</span><span class="p">)</span>
+        <span class="n">plt</span><span class="p">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">'upper center'</span><span class="p">)</span>
+        <span class="n">plt</span><span class="p">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'Point number'</span><span class="p">)</span>
+        <span class="n">plt</span><span class="p">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'Amplitude'</span><span class="p">)</span>
+        <span class="n">plt</span><span class="p">.</span><span class="n">yscale</span><span class="p">(</span><span class="s">'log'</span><span class="p">)</span>
+        <span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">obdat</span>
+    <span class="k">except</span> <span class="nb">Exception</span> <span class="k">as</span> <span class="n">msg</span><span class="p">:</span>
+        <span class="k">print</span> <span class="p">(</span><span class="s">'**** ERROR:'</span><span class="p">)</span>
+        <span class="k">print</span> <span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span> <span class="p">(</span><span class="s">'myOtherButterworth: Work done'</span><span class="p">)</span>
+
+
+
+<span class="k">def</span> <span class="nf">AA</span><span class="p">(</span><span class="n">nl</span><span class="p">,</span> <span class="n">nc</span><span class="p">):</span>
+    <span class="c1">#
+</span>    <span class="c1">#   Computes Fourier Matrix
+</span>    <span class="c1">#   Calls to moncos
+</span>    <span class="c1">#   returns aa (-- i.i. the matrix A)
+</span>    <span class="c1">#
+</span>    <span class="n">aa</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([[</span><span class="n">moncos</span><span class="p">(</span><span class="n">nl</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nc</span><span class="p">)]</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nl</span><span class="p">)])</span>
+    <span class="n">dm</span> <span class="o">=</span> <span class="mf">1.e-15</span> <span class="o">*</span> <span class="n">np</span><span class="p">.</span><span class="n">amax</span><span class="p">(</span><span class="n">aa</span><span class="p">)</span>
+    <span class="n">aa</span><span class="p">[</span><span class="nb">abs</span><span class="p">(</span><span class="n">aa</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">dm</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.</span>
+    <span class="k">return</span> <span class="n">aa</span>
+
+
+<span class="k">def</span> <span class="nf">CE</span><span class="p">(</span><span class="n">nv</span><span class="p">,</span> <span class="n">eps</span><span class="p">):</span>
+    <span class="c1">#
+</span>    <span class="c1">#   Computes and returns Data Covarience Matrix ce
+</span>    <span class="c1">#
+</span>    <span class="n">ce</span> <span class="o">=</span> <span class="n">eps</span> <span class="o">*</span> <span class="n">eps</span> <span class="o">*</span> <span class="n">np</span><span class="p">.</span><span class="n">eye</span><span class="p">(</span><span class="n">nv</span><span class="p">,</span> <span class="n">nv</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ce</span>
+
+<span class="k">def</span> <span class="nf">invert_AA</span><span class="p">(</span><span class="n">nv</span><span class="p">,</span> <span class="n">cnd</span><span class="p">,</span> <span class="n">aa</span><span class="p">):</span>
+    <span class="c1">#
+</span>    <span class="c1">#   Invert AA by winnowing
+</span>    <span class="c1"># return AAi
+</span>    <span class="k">try</span><span class="p">:</span>
+        <span class="n">L</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">linalg</span><span class="p">.</span><span class="n">eigh</span><span class="p">(</span><span class="n">aa</span><span class="p">)</span>
+        <span class="n">L</span><span class="p">[</span><span class="nb">abs</span><span class="p">(</span><span class="n">L</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">cnd</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.</span>
+        <span class="n">M</span> <span class="o">=</span> <span class="n">L</span> <span class="o">!=</span> <span class="mi">0</span>
+        <span class="n">Vt</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">V</span><span class="p">)</span>
+        <span class="n">Vt</span> <span class="o">=</span> <span class="n">Vt</span><span class="p">[</span><span class="n">M</span><span class="p">]</span>
+        <span class="n">V</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">Vt</span><span class="p">)</span>
+        <span class="n">L</span> <span class="o">=</span> <span class="n">L</span><span class="p">[</span><span class="n">M</span><span class="p">]</span>
+    <span class="c1">#
+</span>        <span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">diag</span><span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="n">L</span><span class="p">)</span>
+        <span class="n">AAi</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">Vt</span><span class="p">)</span>
+        <span class="n">AAi</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">AAi</span><span class="p">)</span>
+    <span class="c1">#
+</span>        <span class="k">return</span> <span class="n">AAi</span>
+    <span class="k">except</span> <span class="nb">Exception</span> <span class="k">as</span> <span class="n">msg</span><span class="p">:</span>
+        <span class="k">print</span> <span class="p">(</span><span class="s">'**** ERROR:'</span><span class="p">)</span>
+        <span class="k">print</span> <span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span> <span class="p">(</span><span class="s">'INVERT AA for minimum norm: Work done'</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">AtWA</span><span class="p">(</span><span class="n">nl</span><span class="p">,</span> <span class="n">nc</span><span class="p">,</span> <span class="n">eps</span><span class="p">):</span>
+    <span class="c1">#
+</span>    <span class="c1">#   Computes At.CE^{-1}.A
+</span>    <span class="c1">#   Calls to AA, CE
+</span>    <span class="c1"># return GG
+</span>    <span class="n">aa</span> <span class="o">=</span> <span class="n">AA</span><span class="p">(</span><span class="n">nl</span><span class="p">,</span> <span class="n">nc</span><span class="p">)</span>
+    <span class="n">ww</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">linalg</span><span class="p">.</span><span class="n">inv</span><span class="p">(</span><span class="n">CE</span><span class="p">(</span><span class="n">nl</span><span class="p">,</span> <span class="n">eps</span><span class="p">))</span>
+    <span class="n">aat</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">aa</span><span class="p">)</span>
+    <span class="c1">#
+</span>    <span class="n">GG</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">ww</span><span class="p">,</span> <span class="n">aa</span><span class="p">)</span>
+    <span class="n">GG</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">aat</span><span class="p">,</span> <span class="n">GG</span><span class="p">)</span>
+    <span class="n">dm</span> <span class="o">=</span> <span class="mf">1.e-15</span> <span class="o">*</span> <span class="n">np</span><span class="p">.</span><span class="n">amax</span><span class="p">(</span><span class="n">GG</span><span class="p">)</span>
+    <span class="n">GG</span><span class="p">[</span><span class="nb">abs</span><span class="p">(</span><span class="n">GG</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">dm</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.</span>
+    <span class="c1"># print 'At.W.A'
+</span>    <span class="c1"># print GG
+</span>    <span class="k">return</span> <span class="n">GG</span>
+</code></pre></div></div>
+
+<p>After defining the functions above, of course we want to put them to good use.
+Let’s construct our first synthetic data! This data is basically constructed
+from the superposition of several cosine waves, where we define the frequency
+k, the length of data nv, and the random white noise eps.</p>
+
+<p>Then, we use the plot function to plot it.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">synth_data</span> <span class="o">=</span> <span class="n">mk_synth_data</span><span class="p">(</span><span class="n">nv</span><span class="p">,</span> <span class="n">k1</span><span class="p">,</span> <span class="n">k2</span><span class="p">,</span> <span class="n">k3</span><span class="p">,</span> <span class="n">eps</span><span class="p">)</span>
+<span class="n">myplot</span><span class="p">(</span><span class="n">synth_data</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+<p><img src="/images/practical_1_Inverse_Problems_files/practical_1_Inverse_Problems_0_0.png" alt="png" /></p>
+
+<p>The synthetic data looks complicated enough. Let’s now try to filter it
+using low-pass filter with the first Butterworth design.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">filt_data</span> <span class="o">=</span> <span class="n">myButterworth</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">synth_data</span><span class="p">)</span>
+<span class="n">myplot</span><span class="p">(</span><span class="n">filt_data</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><img src="/images/practical_1_Inverse_Problems_files/practical_1_Inverse_Problems_1_0.png" alt="png" /></p>
+
+<p><img src="/images/practical_1_Inverse_Problems_files/practical_1_Inverse_Problems_1_1.png" alt="png" /></p>
+
+<p>This gives us 1) a plot of amplitude of spectra
+against the time series (or the number of points), and
+2) a plot of filtered signal.</p>
+
+<p>We can see that the spectra is still quite noisy, and we are still not sure
+yet where the peak spectra(s) is(are). The filtered signal has not yet changed
+that much either.</p>
+
+<p>Let’s then filter it again, this time with half of the previous frequency,
+keeping the filter order at 10.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">filt_data2</span> <span class="o">=</span> <span class="n">myButterworth</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="n">synth_data</span><span class="p">)</span>
+<span class="n">myplot</span><span class="p">(</span><span class="n">filt_data2</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><img src="/images/practical_1_Inverse_Problems_files/practical_1_Inverse_Problems_2_0.png" alt="png" /></p>
+
+<p><img src="/images/practical_1_Inverse_Problems_files/practical_1_Inverse_Problems_2_1.png" alt="png" /></p>
+
+<p>Now we start to see that the smaller random peaks on the amplitude-timeseries
+plot start to disappear. Now let’s lower the frequency threshold to 20 Hz!</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">filt_data3</span> <span class="o">=</span> <span class="n">myButterworth</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">synth_data</span><span class="p">)</span>
+<span class="n">myplot</span><span class="p">(</span><span class="n">filt_data3</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><img src="/images/practical_1_Inverse_Problems_files/practical_1_Inverse_Problems_3_0.png" alt="png" /></p>
+
+<p><img src="/images/practical_1_Inverse_Problems_files/practical_1_Inverse_Problems_3_1.png" alt="png" /></p>
+
+<p>At this stage, we can safely say that the threshold used is good enough.
+Now we can see that there are at least three distinct peaks of spectra, meaning
+that our synthetic signal is formed by superposed cosine waves with three distinct
+frequencies.</p>
+
+<p>Our filtered signal also looks less chaotic and neat after setting the correct
+frequency threshold.</p>
+
+<p>So, what about the second Butterworth design? At this point, you will notice
+that the second one is using filtfilt function instead of lfilt
+from the scipy module. Why? Let’s find the answer by applying this filter!</p>
+
+<h1 id="a-short-instance-of-linear-inverse-problem-will-be-published-soon">A short instance of linear inverse problem (will be published soon…)</h1>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#butterworth-filter" class="page__taxonomy-item" rel="tag">Butterworth filter</a><span class="sep">, </span>
+    
+      <a href="/tags/#fast-fourier-transform" class="page__taxonomy-item" rel="tag">Fast Fourier Transform</a><span class="sep">, </span>
+    
+      <a href="/tags/#linear-inverse-problem" class="page__taxonomy-item" rel="tag">linear inverse problem</a>
+    
+    </span>
+  </p>
+
+
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2019-10-28T00:00:00+07:00">October 28, 2019</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=FT+%26+linear+Inverse+Problem%20http%3A%2F%2Flocalhost%3A4000%2FTD1-Inverse-Problems%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2FTD1-Inverse-Problems%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2FTD1-Inverse-Problems%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/TD3-nonstat2D/" class="pagination--pager" title="Non-stationary 2D heat equation
+">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You May Also Enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/TD3-nonstat2D/" rel="permalink">Non-stationary 2D heat equation
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">numerical modeling, heat equation, non-stationary regime
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/TD2-CN/" rel="permalink">Neumann condition
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">numerical modeling, heat equation, Neumann condition
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/TD1-MN/" rel="permalink">Numerical Modeling
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">numerical modeling, heat equation, Dirichlet condition
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://github.com/ical10/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://www.linkedin.com/in/husni-rizal/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> LinkedIn</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 Mochammad Husni Rizal. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
