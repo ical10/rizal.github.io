@@ -13,6 +13,8 @@ link: https://expo.io/accounts/ical10/projects/famtrack-app-android
 
 This Android app was built as an integral part of the whole Famtrack application: it helps families to locate their loved ones in real-time, to receive an instantaneous notification if a family pushed the panic button on the IoT device, and trigger the alarm on the same device if a travel agent suspects that one of his group member is missing during Hajj travel.
 
+Moreover, users can see **News** related to Hajj travel, curated by Famtrack admins; **Schedule** of a certain group/people being tracked, and **Members** of family/group being tracked by Famtrack (depends on whether if you are a family member or a Hajj travel lead).
+
 {% include my_gallery_famtrack.html folder="/images/img" %}
 
 Go to hosted site: [link](https://expo.io/accounts/ical10/projects/famtrack-app-android)
