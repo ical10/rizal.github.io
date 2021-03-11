@@ -5,7 +5,7 @@ header:
   image: /images/img/famtrack_header.png
 sidebar:
   - title: "Role"
-    text: "Full-stack Developer"
+    text: "Front-End Developer"
   - title: "Responsibilities"
     text: "Creating an Android app to help track the real-time location of your family, receive notifications, and send a buzz when you lose a member of your group during Hajj travel!"
 link: https://expo.io/accounts/ical10/projects/famtrack-app-android
