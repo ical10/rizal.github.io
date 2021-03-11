@@ -2,12 +2,12 @@
 title: "Famtrack Android App"
 excerpt: "An IoT-based tracking app to monitor the whereabouts of your family or congregation during Hajj travel"
 header:
-  image: /images/img/cinepedia_movies.png
+  image: /images/img/famtrack_header.png
 sidebar:
   - title: "Role"
     text: "Full-stack Developer"
   - title: "Responsibilities"
-    text: "An Android app to help track the real-time location of your family, receive notifications, and send a buzz when you lose a member of your group during Hajj travel!"
+    text: "Creating an Android app to help track the real-time location of your family, receive notifications, and send a buzz when you lose a member of your group during Hajj travel!"
 link: https://expo.io/accounts/ical10/projects/famtrack-app-android
 ---
 
