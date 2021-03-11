@@ -15,6 +15,8 @@ This Android app was built as an integral part of the whole Famtrack application
 
 Moreover, users can see **News** related to Hajj travel, curated by Famtrack admins; **Schedule** of a certain group/people being tracked, and **Members** of family/group being tracked by Famtrack (depends on whether if you are a family member or a Hajj travel lead).
 
+Click on the gif below to view a short demo of this app.
+
 {% include my_gallery_famtrack.html folder="/images/img" %}
 
 Go to hosted site: [link](https://expo.io/accounts/ical10/projects/famtrack-app-android)
