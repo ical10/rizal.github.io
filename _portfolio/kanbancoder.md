@@ -11,7 +11,7 @@ sidebar:
 link: https://kanbancoder-red.web.app/
 ---
 
-This web app mimics the functionalities of Trello-like kanban board. Logged user will be able to create its own tasks based on its stage (Backlog, Todo, Doing, Completed). The tasks of other users will be shown as well in the board, but logged user is only aauthorised to perform operations on his/her own tasks.
+This web app mimics the functionalities of Trello-like kanban board. Logged user will be able to create its own tasks based on its stage (Backlog, Todo, Doing, Completed). The tasks of other users will be shown as well in the board, but logged user is only authorised to perform operations on his/her own tasks.
 
 Click on the gif below to view a short demo of this app.
 
